@@ -30,15 +30,17 @@
     inset: 0;
     display: grid;
     place-items: center;
-    background: rgb(0 0 0 / 0.42);
+    background: rgb(3 8 12 / 0.68);
+    backdrop-filter: blur(10px);
   }
 
   .dialog {
     width: 420px;
     padding: 16px;
-    border: 1px solid #344254;
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
-    background: #151d26;
+    background: var(--panel-strong);
+    box-shadow: var(--shadow);
   }
 
   header,
@@ -55,6 +57,7 @@
 
   h2 {
     margin: 0;
+    color: var(--text-strong);
     font-size: 16px;
   }
 
@@ -65,10 +68,6 @@
   input {
     width: 240px;
     min-height: 32px;
-    border: 1px solid #3b4756;
-    border-radius: 6px;
     padding: 0 10px;
-    color: #d8dee9;
-    background: #101820;
   }
 </style>

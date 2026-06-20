@@ -1,10 +1,28 @@
 :root {
-  color: #d8dee9;
-  background: #101418;
+  color: #d9e7ef;
+  background: #0b0f14;
+  color-scheme: dark;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 14px;
   line-height: 1.45;
+  --bg: #0b0f14;
+  --panel: #111922;
+  --panel-strong: #151f2a;
+  --panel-soft: #0f171f;
+  --line: #243544;
+  --line-strong: #335064;
+  --text: #d9e7ef;
+  --text-strong: #f5fbff;
+  --muted: #8da4b6;
+  --subtle: #607586;
+  --accent: #33d6b7;
+  --accent-strong: #7cf7d7;
+  --blue: #6eb7ff;
+  --amber: #ffcc66;
+  --red: #ff7f73;
+  --green: #70e392;
+  --shadow: 0 18px 44px rgb(0 0 0 / 0.28);
 }
 
 * {
@@ -15,7 +33,13 @@ body {
   margin: 0;
   min-width: 920px;
   min-height: 620px;
-  background: #101418;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgb(124 247 215 / 0.045) 1px, transparent 1px),
+    linear-gradient(rgb(124 247 215 / 0.035) 1px, transparent 1px),
+    linear-gradient(135deg, #0b0f14 0%, #0d141b 52%, #10151a 100%);
+  background-size: 32px 32px, 32px 32px, auto;
+  color: var(--text);
 }
 
 button,
@@ -25,24 +49,76 @@ select {
 }
 
 button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   min-height: 32px;
-  border: 1px solid #3b4756;
+  border: 1px solid var(--line-strong);
   border-radius: 6px;
   padding: 0 12px;
-  color: #e5eef8;
-  background: #1b242e;
+  color: var(--text);
+  background: linear-gradient(180deg, #1a2732 0%, #13202a 100%);
   cursor: pointer;
+  white-space: nowrap;
+  transition:
+    border-color 120ms ease,
+    background 120ms ease,
+    color 120ms ease,
+    transform 120ms ease;
 }
 
 button:hover {
-  background: #243141;
+  border-color: #4d748c;
+  background: linear-gradient(180deg, #213240 0%, #182735 100%);
+}
+
+button:active {
+  transform: translateY(1px);
 }
 
 button:disabled {
-  color: #718093;
+  border-color: #263847;
+  color: var(--subtle);
+  background: #111922;
   cursor: not-allowed;
 }
 
+button.primary {
+  border-color: #2fe0bf;
+  color: #061310;
+  background: linear-gradient(180deg, #8bfbe0 0%, #25c7a8 100%);
+}
+
+button.primary:hover {
+  background: linear-gradient(180deg, #a7ffe9 0%, #38d9ba 100%);
+}
+
+button.danger {
+  border-color: #6f3c3b;
+  color: #ffd9d4;
+  background: #251819;
+}
+
+button.ghost {
+  background: transparent;
+}
+
+input,
+select {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  background: #0a1118;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(51 214 183 / 0.14);
+}
+
 .muted {
-  color: #8b9bad;
+  color: var(--muted);
 }

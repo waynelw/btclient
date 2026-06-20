@@ -41,9 +41,10 @@
   </main>
 
   <footer class="statusbar">
-    <span>下载 {formatSpeed(totalDown)}</span>
-    <span>上传 {formatSpeed(totalUp)}</span>
-    <span>活跃任务 {activeTask ? activeTask.name : '无'}</span>
+    <span class="pulse" aria-hidden="true"></span>
+    <span>下载 <strong>{formatSpeed(totalDown)}</strong></span>
+    <span>上传 <strong>{formatSpeed(totalUp)}</strong></span>
+    <span class="active">活跃任务 <strong>{activeTask ? activeTask.name : '无'}</strong></span>
   </footer>
 
   <SettingsDialog open={settingsOpen} onClose={() => (settingsOpen = false)} />
@@ -53,26 +54,49 @@
 <style>
   .shell {
     display: grid;
-    grid-template-rows: 48px minmax(0, 1fr) 32px;
+    grid-template-rows: 72px minmax(0, 1fr) 34px;
     height: 100vh;
-    background: #101418;
-    color: #d8dee9;
+    color: var(--text);
   }
 
   .workspace {
     display: grid;
-    grid-template-columns: minmax(560px, 1fr) 340px;
+    grid-template-columns: minmax(580px, 1fr) 360px;
+    gap: 12px;
     min-height: 0;
-    border-top: 1px solid #25303d;
-    border-bottom: 1px solid #25303d;
+    padding: 12px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
 
   .statusbar {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     padding: 0 16px;
-    color: #9fb0c3;
-    background: #131a22;
+    overflow: hidden;
+    color: var(--muted);
+    background: rgb(10 15 20 / 0.88);
+    border-top: 1px solid rgb(124 247 215 / 0.08);
+  }
+
+  strong {
+    color: var(--text-strong);
+    font-weight: 600;
+  }
+
+  .pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgb(51 214 183 / 0.72);
+  }
+
+  .active {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>

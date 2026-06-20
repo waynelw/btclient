@@ -20,9 +20,10 @@
     gap: 12px;
     max-width: 420px;
     padding: 10px 12px;
-    border: 1px solid #7f3b32;
+    border: 1px solid rgb(255 127 115 / 0.42);
     border-radius: 8px;
     color: #ffddd7;
-    background: #2b1716;
+    background: rgb(43 23 22 / 0.96);
+    box-shadow: var(--shadow);
   }
 </style>
