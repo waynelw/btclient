@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "btclient",
+  "version": "0.1.0",
+  "identifier": "dev.btclient.desktop",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "features": ["desktop"]
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "btclient",
+        "width": 1180,
+        "height": 760,
+        "minWidth": 920,
+        "minHeight": 620
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "deb",
+    "icon": []
+  }
+}
